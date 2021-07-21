@@ -12,24 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Rotte per non amministratori 
-// Route::get('/', function () {
-//     return view('guest.welcome');
-// });
-Route::get('/', 'Guest\PageController@index');
-Route::get('/home', 'Guest\ArticleController@index');
+
+// Utenti non auteticati 
+Route::get('/', 'General\ArticleController@index');
 
 
 
-
-
-
-Auth::routes(); 
 // Rotte per Admin 
+Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
-    Route::get('/', 'HomeController@index')->name('dashbord');
-    Route::resource('articles', ArticleController::class);
-
-
-
+    Route::get('/', 'ArticleController@index');
+    //Route::get('/', 'HomeController@index')->name('dashbord');
+    //Route::resource('articles', ArticleController::class);
 });

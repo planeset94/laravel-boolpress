@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers\General;
 
 use App\Article;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('guest.page');
+        $articles=Article::all();
+        return view('general.welcome', compact('articles'));
     }
 
    
