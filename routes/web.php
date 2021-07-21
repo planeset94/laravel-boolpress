@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Rotte per non amministratori 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+// Route::get('/', function () {
+//     return view('guest.welcome');
+// });
+Route::get('/', 'Guest\PageController@index');
+Route::get('/home', 'Guest\ArticleController@index');
+
+
+
 
 
 
