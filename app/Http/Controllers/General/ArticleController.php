@@ -28,7 +28,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('general.show', compact('article'));
     }
 
     

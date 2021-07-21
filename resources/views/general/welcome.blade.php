@@ -39,7 +39,7 @@
                 <!-- Sidenav -->
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
                     <a class="text-uppercase text-xs mb-2" href="#!">
-                        Marketing
+                        Mrketing
                     </a>
                     <a class="text-uppercase text-xs mb-2" href="#!">
                         Automation
@@ -60,7 +60,7 @@
 
 
                 @foreach ($articles as $article)
-                    <a class="row align-items-center text-nounderline" href="#">
+                    <a class="row align-items-center text-nounderline" href="{{ route('article.show', $article->id) }}">
                         <div class="col-12 col-md-3">
 
                             <!-- Image -->

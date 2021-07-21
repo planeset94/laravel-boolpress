@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Utenti non auteticati 
-Route::get('/', 'General\ArticleController@index');
 
+// Route::resource('articles', General\ArticleController::class)->only('index', 'show');
+Route::get('/', 'General\ArticleController@index')->name('article.index');
+
+Route::get('articles{article}', 'General\ArticleController@show')->name('article.show');
 
 
 // Rotte per Admin 
 Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
-    Route::get('/', 'ArticleController@index');
-    //Route::get('/', 'HomeController@index')->name('dashbord');
-    //Route::resource('articles', ArticleController::class);
+    Route::get('/', 'ArticleController@index')->name('index');
+    Route::get('articles{article}', 'ArticleController@show')->name('show');
+    // Route::resource('articles', ArticleController::class);
 });

@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $articles=Article::all();
+        return view('admin.index', compact('articles'));
     }
 
     /**
@@ -47,7 +48,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('admin.show', compact('article'));
     }
 
     /**
