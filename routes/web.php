@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(); 
 
-Route::get('/admin', 'HomeController@index')->name('admin');
+Auth::routes(); 
+// Rotte per Admin 
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+    Route::get('/', 'HomeController@index')->name('dashbord');
+    Route::resource('articles', ArticleController::class);
+
+
+
+});
