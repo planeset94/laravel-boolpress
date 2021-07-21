@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Rotte per non amministratori 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
+
 
 
 Auth::routes(); 

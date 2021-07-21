@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
 use App\Article;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -17,8 +18,7 @@ class ArticleController extends Controller
         //
     }
 
-    
-
+   
     /**
      * Display the specified resource.
      *
@@ -30,4 +30,5 @@ class ArticleController extends Controller
         //
     }
 
+    
 }
