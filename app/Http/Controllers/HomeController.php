@@ -13,6 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        //Il metodo Middleware protegge il controller Home e 
+        // consente di visualizzare una certa pagina solo agli utenti autenticati. 
         $this->middleware('auth');
     }
 
