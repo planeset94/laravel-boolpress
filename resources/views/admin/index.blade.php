@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
+
+
 @section('content')
 
     <div class="container">
-        <a href="{{ route('admin.create') }}" class="text-muted">Create a record</a>
-        <br>
-        <a href="{{ route('article.index') }}" class="text-muted">Guest~Homepage</a>
+
         <table class="table">
             <thead>
                 <tr>
