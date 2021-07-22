@@ -15,6 +15,15 @@ class ArticleController extends Controller
      */
     public function index()
     {
+           
+        
+    //         $currentDate = date('Y-m-d'); 
+        
+    // $numbDays =  $startTime->diff($currentDate)->format('%D');
+
+
+
+
         $articles=Article::all();
         return view('general.welcome', compact('articles'));
     }

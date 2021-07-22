@@ -37,7 +37,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // ddd($request->all());
+        $validatedData=$request->validate(
+            [
+                'title'=>' required | min:5 | max:50', 
+                'text'=>'required',
+                'intro'=>'nullable',
+                'author'=> 'required',
+                'picture'=>'required',
+                'time'=>'required| date'
+            ]
+        );
+
+        Article::create ($validatedData);
+        return redirect()->route ('admin.index');
+        
     }
 
     /**

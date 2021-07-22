@@ -13,14 +13,14 @@ class ArticleSeeder extends Seeder
     public function run(Faker $faker)
     {
         
-        for ($i=0; $i<10; $i++) { 
+        for ($i=0; $i<50; $i++) { 
             $article=new Article();
             $article->title=$faker->realText($maxNbChars = 20, $indexSize = 2);
             $article->intro=$faker->realText($maxNbChars = 50, $indexSize = 2);
             $article->text=$faker->realText($maxNbChars = 500, $indexSize = 2);
             $article->author=$faker->name($gender = null);
             $article->picture=$faker->imageUrl(100,100, 'Article', true);
-            $article->time=$faker->numberBetween(1,24);
+            $article->time=$faker->date();
             $article->save();        
     
         }

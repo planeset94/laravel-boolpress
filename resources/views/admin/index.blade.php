@@ -3,7 +3,9 @@
 @section('content')
 
     <div class="container">
-        <a href="{{ route('admin.create') }}">Create a record</a>
+        <a href="{{ route('admin.create') }}" class="text-muted">Create a record</a>
+        <br>
+        <a href="{{ route('article.index') }}" class="text-muted">Guest~Homepage</a>
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +23,7 @@
                 <tbody>
                     <tr>
 
-                        <td><img src="{{ $article->picture }}">
+                        <td><img src="{{ $article->picture }}" width="200px" height="200px">
                         </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->intro }}</td>

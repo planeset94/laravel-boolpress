@@ -39,20 +39,12 @@
                 <!-- Sidenav -->
                 <nav class="sidenav d-flex flex-column mb-5 mb-md-0">
                     <a class="text-uppercase text-xs mb-2" href="#!">
-                        Mrketing
+                        About Me
                     </a>
                     <a class="text-uppercase text-xs mb-2" href="#!">
-                        Automation
+                        Contacts
                     </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        Gadgets
-                    </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
-                        Events
-                    </a>
-                    <a class="text-uppercase text-xs" href="#!">
-                        Videos
-                    </a>
+
                 </nav>
 
             </div>
@@ -71,8 +63,10 @@
 
                             <!-- Meta -->
                             <p class="mb-2 text-xs text-muted">
-                                by <strong class="text-body">{{ $article->author }}</strong> {{ $article->time }} days
-                                ago
+                                by <strong class="text-body">{{ $article->author }}</strong>
+                                {{ $article->time }}
+                                {{-- {{ (date('Y-m-d') - $article->time)->format('D') }} --}}
+
                             </p>
 
                             <!-- Heading -->
