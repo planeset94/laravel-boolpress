@@ -16,7 +16,7 @@
 
     <div class="container p-4">
 
-        <form action="{{ route('admin.store') }}" method="post">
+        <form action="{{ route('admin.articles.store') }}" method="post">
 
             @csrf
             <div class="form-group">

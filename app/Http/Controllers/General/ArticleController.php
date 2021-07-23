@@ -24,7 +24,7 @@ class ArticleController extends Controller
 
 
 
-        $articles=Article::all();
+        $articles=Article::orderBy('id', 'DESC')->paginate(10);
         return view('general.welcome', compact('articles'));
     }
 

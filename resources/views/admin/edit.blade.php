@@ -18,7 +18,7 @@
     <div class="container p-4">
         <h3 class="text-muted pb-3">Edit Article</h3>
 
-        <form action="{{ route('admin.update', $article->id) }}" method="post">
+        <form action="{{ route('admin.articles.update', $article->id) }}" method="post">
 
             @csrf
             @method('PUT')

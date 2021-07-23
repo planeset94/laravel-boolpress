@@ -31,12 +31,12 @@
                         <td>{{ $article->author }}</td>
                         <td>{{ $article->time }}</td>
                         <td>
-                            <a href="{{ route('admin.show', $article->id) }}">View</a>
-                            <a href="{{ route('admin.edit', $article->id) }}">Edit</a>
+                            <a href="{{ route('admin.articles.show', $article->id) }}">View</a>
+                            <a href="{{ route('admin.articles.edit', $article->id) }}">Edit</a>
 
 
                             {{-- Delete Command --}}
-                            <form action="{{ route('admin.delete', $article->id) }}" method="post">
+                            <form action="{{ route('admin.articles.destroy', $article->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><i

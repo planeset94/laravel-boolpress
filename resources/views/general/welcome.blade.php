@@ -33,7 +33,7 @@
 
                 <!-- Title -->
                 <h6 class="title">
-                    Categories
+                    More Info
                 </h6>
 
                 <!-- Sidenav -->
@@ -90,6 +90,7 @@
 
             </div>
         </div> <!-- / .row -->
+        {{ $articles->links() }}
     </div>
 
 

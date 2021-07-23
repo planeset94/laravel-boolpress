@@ -25,12 +25,12 @@ Route::get('articles{article}', 'General\ArticleController@show')->name('article
 Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
 
-    Route::get('/', 'ArticleController@index')->name('index');
-    Route::post('articles', 'ArticleController@store')->name('store');
-    Route::get('articles/create', 'ArticleController@create')->name('create');
-    Route::put('articles', 'ArticleController@update')->name('update');
-    Route::get('articles{article}', 'ArticleController@show')->name('show');
-    Route::get('articles/{article}/edit', 'ArticleController@edit')->name('edit');
-    Route::delete('articles{article}', 'ArticleController@destroy')->name('delete');
-    // Route::resource('articles', ArticleController::class);
+    // Route::get('/', 'ArticleController@index')->name('index');
+    // Route::post('articles', 'ArticleController@store')->name('store');
+    // Route::get('articles/create', 'ArticleController@create')->name('create');
+    // Route::put('articles', 'ArticleController@update')->name('update');
+    // Route::get('articles{article}', 'ArticleController@show')->name('show');
+    // Route::get('articles/{article}/edit', 'ArticleController@edit')->name('edit');
+    // Route::delete('articles{article}', 'ArticleController@destroy')->name('delete');
+    Route::resource('articles', ArticleController::class);
 });

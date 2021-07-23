@@ -50,7 +50,7 @@ class ArticleController extends Controller
         );
 
         Article::create($validatedData);
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.articles.index');
         
     }
 
@@ -98,7 +98,7 @@ class ArticleController extends Controller
         );
 
         $article->update($validatedData);
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -110,7 +110,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
            $article->destroy;
-           return redirect()->route('admin.index');
+           return redirect()->route('admin.articles.index');
             
     }
 }
