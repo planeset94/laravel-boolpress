@@ -25,7 +25,14 @@
                     <tr>
 
                         <td>{{ $article->id }}</td>
-                        <td><img src="{{ $article->picture }}" width="200px" height="200px">
+                        <td>
+                            {{-- <img src="{{ $article->picture }}" width="200px" height="200px"> --}}
+
+                            <img src="{{ asset('storage/article_images/' . $article->picture) }}" width="200px"
+                                height="200px">
+                            {{-- <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"> --}}
+                            {{-- @if ($article->picture)
+                            @endif --}}
                         </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->intro }}</td>

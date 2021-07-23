@@ -16,7 +16,7 @@
 
     <div class="container p-4">
 
-        <form action="{{ route('admin.articles.store') }}" method="post">
+        <form action="{{ route('admin.articles.store') }}" method="post" enctype="multipart/form-data">
 
             @csrf
             <div class="form-group">
@@ -47,8 +47,9 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control @error('title') is invalid @enderror" name="picture" id="picture"
-                    aria-describedby="pictureId" placeholder="https://" max="300" value="{{ old('picture') }}">
+                <input type="file" class="form-control-file @error('title') is invalid @enderror" name="picture"
+                    id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
+                    value="{{ old('picture') }}">
                 <small id="pictureId" class="form-text text-muted">Place an Url image</small>
             </div>
 

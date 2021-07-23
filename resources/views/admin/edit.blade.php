@@ -25,7 +25,7 @@
 
         <h3 class="text-muted pb-3">Edit Article</h3>
 
-        <form action="{{ route('admin.articles.update', $article->id) }}" method="post">
+        <form action="{{ route('admin.articles.update', $article->id) }}" method="post" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -58,8 +58,9 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control @error('title') is invalid @enderror" name="picture" id="picture"
-                    aria-describedby="pictureId" placeholder="https://" max="300" value="{{ $article->picture }}">
+                <input type="file" class="form-control-file @error('title') is invalid @enderror" name="picture"
+                    id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
+                    value="{{ $article->picture }}">
                 <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
 

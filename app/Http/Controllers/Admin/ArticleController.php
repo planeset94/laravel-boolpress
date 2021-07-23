@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -44,10 +46,14 @@ class ArticleController extends Controller
                 'text'=>'required',
                 'intro'=>'nullable',
                 'author'=> 'required',
-                'picture'=>'required',
+                'picture'=>'required | image | mimes:jpeg,png | max:300',
                 'time'=>'required| date'
             ]
         );
+
+        $File_path= Storage::put('article_images', $validatedData['picture']);
+        $validatedDate['picture']=$File_path; 
+
 
         Article::create($validatedData);
         return redirect()->route('admin.articles.index');
