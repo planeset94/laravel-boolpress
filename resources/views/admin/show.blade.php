@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/general/home.css') }}">
@@ -9,8 +9,8 @@
 
         <!-- nav -->
         <nav class="d-flex  mb-5 pb-md-0">
-            <a class="text-uppercase text-xs mb-2" href="{{ route('admin.index') }}">
-                Dashbord
+            <a class="text-muted text-xs mb-2" href="{{ route('admin.index') }}">
+                Back
             </a>
 
         </nav>

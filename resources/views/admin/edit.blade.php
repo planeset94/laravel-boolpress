@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 
 
-{{-- @include('partials.errors') Mi da errore --}}
+
 @section('content')
 
     @if ($errors->any())
@@ -14,48 +14,52 @@
         </div>
     @endif
 
-    <div class="container p-4">
 
-        <form action="{{ route('admin.store') }}" method="post">
+    <div class="container p-4">
+        <h3 class="text-muted pb-3">Edit Article</h3>
+
+        <form action="{{ route('admin.update', $article->id) }}" method="post">
 
             @csrf
+            @method('PUT')
+
             <div class="form-group">
                 {{-- <label for="title">Title</label> --}}
                 <input type="text" class="form-control @error('title') is invalid @enderror" name="title" id="title"
-                    aria-describedby="titleId" placeholder="Title" minlength="5" max="50" value="{{ old('title') }}"
+                    aria-describedby="titleId" placeholder="Title" minlength="5" max="50" value="{{ $article->title }}"
                     required>
-                <small id="titleId" class="form-text text-muted pl-2">Add a Title</small>
+                <small id="titleId" class="form-text text-muted pl-2">Edit this Title</small>
             </div>
 
 
             <div class="form-group">
                 <textarea class="form-control @error('title') is invalid @enderror" name="intro" id="introId" rows="1"
-                    value="">{{ old('intro') }}</textarea>
-                <small id="introId" class="form-text text-muted pl-2">Add an introduction</small>
+                    value="">{{ $article->intro }}</textarea>
+                <small id="introId" class="form-text text-muted pl-2">Edit this introduction</small>
             </div>
 
             <div class="form-group">
                 <textarea class="form-control @error('title') is invalid @enderror" name="text" id="textId" rows="3"
-                    value="" required>{{ old('text') }}</textarea>
-                <small id="textId" class="form-text text-muted pl-2">Write your article</small>
+                    value="" required>{{ $article->text }}</textarea>
+                <small id="textId" class="form-text text-muted pl-2">Edit this article</small>
             </div>
 
             <div class="form-group">
                 <input type="text" class="form-control @error('title') is invalid @enderror" name="author" id="author"
-                    aria-describedby="authorId" placeholder="Author" max="30" value="{{ old('author') }}" required>
-                <small id="authorId" class="form-text text-muted">Who's the author?</small>
+                    aria-describedby="authorId" placeholder="Author" max="30" value="{{ $article->author }}" required>
+                <small id="authorId" class="form-text text-muted">Edit this author</small>
             </div>
 
             <div class="form-group">
                 <input type="text" class="form-control @error('title') is invalid @enderror" name="picture" id="picture"
-                    aria-describedby="pictureId" placeholder="https://" max="300" value="{{ old('picture') }}">
-                <small id="pictureId" class="form-text text-muted">Place an Url image</small>
+                    aria-describedby="pictureId" placeholder="https://" max="300" value="{{ $article->picture }}">
+                <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
 
             <div class="form-group">
                 <input type="date" class="form-control" name="time" id="time" aria-describedby="timeId"
-                    value="{{ old('time') }}" required>
-                <small id="timeId" class="form-text text-muted">Pubblication date</small>
+                    value="{{ $article->time }}" required>
+                <small id="timeId" class="form-text text-muted">Edit this pubblication date</small>
             </div>
 
 

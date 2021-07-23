@@ -6,7 +6,7 @@
 @section('content')
 
 
-    <div class="row p-5 align-items-center">
+    <div class="row my-3 align-items-center">
         <div class="col-12 text-center">
 
             <!-- Image -->

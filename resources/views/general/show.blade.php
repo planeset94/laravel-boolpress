@@ -9,7 +9,7 @@
 
         <!-- nav -->
         <nav class="d-flex  mb-5 pb-md-0">
-            <a class="text-uppercase text-xs mb-2" href="{{ route('article.index') }}">
+            <a class="text-muted text-xs mb-2" href="{{ route('article.index') }}">
                 Home
             </a>
 

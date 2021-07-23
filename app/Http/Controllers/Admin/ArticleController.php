@@ -49,8 +49,8 @@ class ArticleController extends Controller
             ]
         );
 
-        Article::create ($validatedData);
-        return redirect()->route ('admin.index');
+        Article::create($validatedData);
+        return redirect()->route('admin.index');
         
     }
 
@@ -73,7 +73,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.edit', compact('article'));
     }
 
     /**
@@ -85,7 +85,20 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        // ddd($request->all());
+        $validatedData=$request->validate(
+            [
+                'title'=>' required | min:5 | max:50', 
+                'text'=>'required',
+                'intro'=>'nullable',
+                'author'=> 'required',
+                'picture'=>'required',
+                'time'=>'required| date'
+            ]
+        );
+
+        $article->update($validatedData);
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -96,6 +109,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+           $article->destroy;
+           return redirect()->route('admin.index');
+            
     }
 }
