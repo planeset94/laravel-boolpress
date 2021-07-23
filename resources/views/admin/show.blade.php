@@ -8,7 +8,7 @@
     <div class="container section pb-0">
 
         <!-- nav -->
-        <nav class="d-flex  mb-5 pb-md-0">
+        <nav class="d-flex  mb-5">
             <a class="text-muted text-xs mb-2" href="{{ route('admin.articles.index') }}">
                 Back
             </a>
