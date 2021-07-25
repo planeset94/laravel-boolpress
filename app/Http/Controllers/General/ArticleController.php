@@ -16,14 +16,6 @@ class ArticleController extends Controller
     public function index()
     {
            
-        
-    //         $currentDate = date('Y-m-d'); 
-        
-    // $numbDays =  $startTime->diff($currentDate)->format('%D');
-
-
-
-
         $articles=Article::orderBy('id', 'DESC')->paginate(10);
         return view('general.welcome', compact('articles'));
     }

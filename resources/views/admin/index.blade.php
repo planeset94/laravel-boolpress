@@ -26,13 +26,14 @@
 
                         <td>{{ $article->id }}</td>
                         <td>
-                            {{-- <img src="{{ $article->picture }}" width="200px" height="200px"> --}}
 
-                            <img src="{{ asset('storage/article_images/' . $article->picture) }}" width="200px"
-                                height="200px">
                             {{-- <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"> --}}
-                            {{-- @if ($article->picture)
-                            @endif --}}
+                            @if ($article->picture)
+                                <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"
+                                    alt="">
+                            @endif
+
+
                         </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->intro }}</td>
@@ -42,7 +43,7 @@
                         <td>
                             {{-- <a href="{{ route('admin.articles.show', $article->id) }}">View</a>
                             <a href="{{ route('admin.articles.edit', $article->id) }}">Edit</a> --}}
-                            <a class="btn btn-success btn-md mb-2 p-0 w70-btn"
+                            <a class=" btn btn-success btn-md mb-2 p-0 w70-btn"
                                 href="{{ route('admin.articles.show', $article->id) }}" role="button"
                                 width="66px;">View</a>
                             <a class="btn btn-warning btn-md mb-2 p-0 w70-btn"

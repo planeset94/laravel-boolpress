@@ -46,16 +46,23 @@ class ArticleController extends Controller
                 'text'=>'required',
                 'intro'=>'nullable',
                 'author'=> 'required',
-                'picture'=>'required | image | mimes:jpeg,png | max:300',
+                'picture'=>'required | image | max:300',
                 'time'=>'required| date'
             ]
         );
 
-        $File_path= Storage::put('article_images', $validatedData['picture']);
-        $validatedDate['picture']=$File_path; 
+        
+       
+
+        if(array_key_exists("picture", $validatedData)) {
+            $img_path = Storage::put("uploads", $validatedData["picture"]);
+            $validatedData["image"] = $img_path;
+        }
 
 
-        Article::create($validatedData);
+
+
+        Article::create($validatedData);       
         return redirect()->route('admin.articles.index');
         
     }
