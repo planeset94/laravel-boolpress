@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container p-4">
-        <form action="" method="post">
+        <form action="{{ route('contacts.send') }}" method="post">
+            @csrf
             {{-- nome --}}
             <div class="form-group">
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="nameId" placeholder="Name">

@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 // Utenti non auteticati 
 
-Route::get('contacts', 'PageController@contact')->name('contacts.contact');
+   // Acquisizione contatti 
+Route::get('contacts', 'PageController@contact')->name('contacts.form');
+Route::post('contacts', 'PageController@sendForm')->name('contacts.send');
 
 
-// Route::resource('articles', General\ArticleController::class)->only('index', 'show');
+   // Pagina principale e approfondimento
 Route::get('/', 'General\ArticleController@index')->name('article.index');
-
 Route::get('articles{article}', 'General\ArticleController@show')->name('article.show');
 
 

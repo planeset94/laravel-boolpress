@@ -14,6 +14,10 @@ return view('general.contact');
 }
 
 
+public function sendForm(Request $request){
+
+    ddd($request->all());
+}
 
 
 }
