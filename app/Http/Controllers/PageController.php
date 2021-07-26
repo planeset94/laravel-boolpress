@@ -16,7 +16,17 @@ return view('general.contact');
 
 public function sendForm(Request $request){
 
-    ddd($request->all());
+    // ddd($request->all());
+    $valData=$request->validate([
+       'name'=> 'required' ,
+       'email'=>'required | email',
+       'body'=>'required'
+    ]);
+
+    // return (new ContactMail($valData))->render();
+
+
+    
 }
 
 

@@ -39,7 +39,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        // ddd($request->all());
         $validatedData=$request->validate(
             [
                 'title'=>' required | min:5 | max:50', 
@@ -48,20 +47,17 @@ class ArticleController extends Controller
                 'author'=> 'required',
                 'picture'=>'required | image | max:300',
                 'time'=>'required| date'
-            ]
-        );
-
-        
-       
-
+                ]
+            );
+            
+            
+            
+            
         if(array_key_exists("picture", $validatedData)) {
-            $img_path = Storage::put("uploads", $validatedData["picture"]);
-            $validatedData["image"] = $img_path;
+        $img_path = Storage::put("article_images", $validatedData["picture"]);
+        $validatedData["picture"] = $img_path;
         }
-
-
-
-
+                
         Article::create($validatedData);       
         return redirect()->route('admin.articles.index');
         
