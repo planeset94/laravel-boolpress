@@ -21,7 +21,9 @@
             <div class="col-3 d-flex">
 
                 <!-- Image -->
-                <img src="{{ $article->picture }}" alt="..." class="img-fluid image mb-3 mb-md-0">
+                <img src="{{ asset('storage/' . $article->picture) }}" alt="..." class="img-fluid image mb-3 mb-md-0"
+                    width="200px" height="200px">
+
 
             </div>
 

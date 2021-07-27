@@ -56,8 +56,10 @@
                         <div class="col-12 col-md-3">
 
                             <!-- Image -->
-                            <img src="{{ $article->picture }}" alt="..." class="img-fluid mb-3 mb-md-0">
-
+                            @if ($article->picture)
+                                <img src="{{ asset('storage/' . $article->picture) }}" class="img-fluid mb-3 mb-md-0"
+                                    width="100px" height="100px">
+                            @endif
                         </div>
                         <div class="col-12 col-md-9">
 
