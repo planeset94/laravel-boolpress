@@ -87,7 +87,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     { 
         $categories=Category::all();
-        return view('admin.edit', compact('article','articles'));
+        return view('admin.edit', compact('article','categories'));
     }
 
     /**
@@ -107,11 +107,17 @@ class ArticleController extends Controller
                 'text'=>'required',
                 'intro'=>'nullable',
                 'author'=> 'required',
-                'picture'=>'required',
+                'picture'=>'nullable',
                 'time'=>'required| date'
             ]
         );
 
+
+        // trasformo le immagini in percorsi testuali 
+        if(array_key_exists("picture", $validatedData)) {
+            $img_path = Storage::put("article_images", $validatedData["picture"]);
+            $validatedData["picture"] = $img_path;
+            }
         $article->update($validatedData);
         return redirect()->route('admin.articles.index');
     }

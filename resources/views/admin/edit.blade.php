@@ -51,18 +51,37 @@
                 <small id="textId" class="form-text text-muted pl-2">Edit this article</small>
             </div>
 
+            {{-- Categoria --}}
+            <div class="form-group">
+                <label for="category_id">Categories</label>
+                <select class="form-control" name="category_id" id="category_id">
+                    <option value="" selected>Select a category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{-- Se, ad ogni iterazione, l'id della 
+                            singola categoria combacia con la chiave esterna dell'articolo, allora seleziona la categoria corrispondente --}}
+                            {{ $category->id === $article->category_id ? 'selected' : '' }}>{{ $category->name }}
+                        </option>
+                    @endforeach
+
+                </select>
+            </div>
+            {{-- /Categoria --}}
+
             <div class="form-group">
                 <input type="text" class="form-control @error('title') is invalid @enderror" name="author" id="author"
                     aria-describedby="authorId" placeholder="Author" max="30" value="{{ $article->author }}" required>
                 <small id="authorId" class="form-text text-muted">Edit this author</small>
             </div>
 
+            {{-- Immagine --}}
             <div class="form-group">
                 <input type="file" class="form-control-file @error('title') is invalid @enderror" name="picture"
                     id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
                     value="{{ $article->picture }}">
                 <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
+            <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px">
+            {{-- /Immagine --}}
 
             <div class="form-group">
                 <input type="date" class="form-control" name="time" id="time" aria-describedby="timeId"
