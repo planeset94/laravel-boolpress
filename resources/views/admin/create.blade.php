@@ -40,6 +40,20 @@
                 <small id="textId" class="form-text text-muted pl-2">Write your article</small>
             </div>
 
+
+            <div class="form-group">
+                <label for="category_id">Categories</label>
+                <select class="form-control" name="category_id" id="category_id">
+                    <option selected disabled>Select a category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+
+
             <div class="form-group">
                 <input type="text" class="form-control @error('title') is invalid @enderror" name="author" id="author"
                     aria-describedby="authorId" placeholder="Author" max="30" value="{{ old('author') }}" required>
@@ -58,7 +72,6 @@
                     value="{{ old('time') }}" required>
                 <small id="timeId" class="form-text text-muted">Pubblication date</small>
             </div>
-
 
             <button type="submit" class="btn btn-primary">Submit</button>
 

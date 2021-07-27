@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    {{-- <th>Category</th> --}}
                     <th>Picture</th>
                     <th>Title</th>
                     <th>Intro</th>
@@ -25,6 +26,8 @@
                     <tr>
 
                         <td>{{ $article->id }}</td>
+                        {{-- <td>{{  }}</td> --}}
+
                         <td>
 
                             {{-- <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"> --}}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use Illuminate\Http\File;
@@ -18,7 +19,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles=Article::orderBy('id','DESC')->paginate(10);
-        return view('admin.index', compact('articles'));
+        $categories=Category::all();
+        return view('admin.index', compact('articles', 'categories'));
     }
 
     /**
@@ -42,6 +44,7 @@ class ArticleController extends Controller
     {
         $validatedData=$request->validate(
             [
+                'category_id'=>'nullable|exists:categories,id',
                 'title'=>' required | min:5 | max:50', 
                 'text'=>'required',
                 'intro'=>'nullable',
@@ -53,7 +56,7 @@ class ArticleController extends Controller
             
             
             
-            
+            // trasformo le immagini in percorsi testuali 
         if(array_key_exists("picture", $validatedData)) {
         $img_path = Storage::put("article_images", $validatedData["picture"]);
         $validatedData["picture"] = $img_path;
@@ -82,8 +85,9 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
-    {
-        return view('admin.edit', compact('article'));
+    { 
+        $categories=Category::all();
+        return view('admin.edit', compact('article','articles'));
     }
 
     /**
@@ -98,6 +102,7 @@ class ArticleController extends Controller
         // ddd($request->all());
         $validatedData=$request->validate(
             [
+                'category_id'=>'nullable|exists:categories,id',
                 'title'=>' required | min:5 | max:50', 
                 'text'=>'required',
                 'intro'=>'nullable',
