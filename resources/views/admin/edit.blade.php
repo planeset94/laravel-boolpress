@@ -59,8 +59,11 @@
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{-- Se, ad ogni iterazione, l'id della 
                             singola categoria combacia con la chiave esterna dell'articolo, allora seleziona la categoria corrispondente --}}
-                            {{ $category->id === $article->category_id ? 'selected' : '' }}>{{ $category->name }}
+                            {{ $category->id === old('category->id', $article->category_id) ? 'selected' : '' }}>
+                            {{ $category->name }}
+
                         </option>
+
                     @endforeach
 
                 </select>

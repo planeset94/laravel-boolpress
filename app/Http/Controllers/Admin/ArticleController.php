@@ -20,6 +20,7 @@ class ArticleController extends Controller
     {
         $articles=Article::orderBy('id','DESC')->paginate(10);
         $categories=Category::all();
+        // ddd($articles);
         return view('admin.index', compact('articles', 'categories'));
     }
 
@@ -75,7 +76,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('admin.show', compact('article'));
+        $categories=Category::all();
+        return view('admin.show', compact('article', 'categories'));
     }
 
     /**

@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    {{-- <th>Category</th> --}}
+                    <th>Category</th>
                     <th>Picture</th>
                     <th>Title</th>
                     <th>Intro</th>
@@ -26,18 +26,17 @@
                     <tr>
 
                         <td>{{ $article->id }}</td>
-                        {{-- <td>{{  }}</td> --}}
-
-                        <td>
-
-                            {{-- <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"> --}}
+                  
+                        <td>{{ $article->category ? $article->category->name : 'Uncategorized' }}</td>
+                                                
+                    <td>
                             @if ($article->picture)
                                 <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px"
                                     alt="">
                             @endif
+                    </td>
 
-
-                        </td>
+                        
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->intro }}</td>
                         <td>{{ $article->text }}</td>
