@@ -31,7 +31,7 @@
 
 
             <div class="col-8">
-
+                <small> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
                 <!-- Heading -->
                 <h4 class="pb-2">
                     {{ $article->title }}
