@@ -15,14 +15,14 @@ class CreateArticleTagTable extends Migration
     {
         Schema::create('article_tag', function (Blueprint $table) {
             // creo la colonna 
-            $table->unsignedBigInteger('article_id');
-            // La rendo una chiave esterna riferita alla tabella articles
-            $table->foreign('article_id')->refererences('id')->on('articles');
-            //Faccio lo stesso per la chiave tag_id
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags');
-            // Specifico gli elementi identificatori 
-            $table->primary(['article_id', 'tag_id']);
+            // La rendo una chiave esterna riferita alla tabella articles
+            //Faccio lo stesso per la chiave tag_id
+            $table->unsignedBigInteger('article_id');
+            $table->foreign('article_id')->references('id')->on('articles');
+            // // Specifico gli elementi identificatori 
+            // $table->primary(['article_id', 'tag_id']);
         });
     }
 
