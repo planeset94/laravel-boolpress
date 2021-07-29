@@ -37,19 +37,28 @@
                     required>
                 <small id="titleId" class="form-text text-muted pl-2">Edit this Title</small>
             </div>
+            @error('title')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
 
             <div class="form-group">
-                <textarea class="form-control @error('title') is invalid @enderror" name="intro" id="introId" rows="1"
+                <textarea class="form-control @error('intro') is invalid @enderror" name="intro" id="introId" rows="1"
                     value="">{{ $article->intro }}</textarea>
                 <small id="introId" class="form-text text-muted pl-2">Edit this introduction</small>
             </div>
+              @error('intro')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
             <div class="form-group">
-                <textarea class="form-control @error('title') is invalid @enderror" name="text" id="textId" rows="3"
+                <textarea class="form-control @error('text') is invalid @enderror" name="text" id="textId" rows="3"
                     value="" required>{{ $article->text }}</textarea>
                 <small id="textId" class="form-text text-muted pl-2">Edit this article</small>
             </div>
+              @error('text')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
             {{-- Categoria --}}
             <div class="form-group">
@@ -86,19 +95,26 @@
         {{-- /Tag--}}
 
             <div class="form-group">
-                <input type="text" class="form-control @error('title') is invalid @enderror" name="author" id="author"
+                <input type="text" class="form-control @error('author') is invalid @enderror" name="author" id="author"
                     aria-describedby="authorId" placeholder="Author" max="30" value="{{ $article->author }}" required>
                 <small id="authorId" class="form-text text-muted">Edit this author</small>
             </div>
+            @error('author')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
             {{-- Immagine --}}
             <div class="form-group">
-                <input type="file" class="form-control-file @error('title') is invalid @enderror" name="picture"
+                <input type="file" class="form-control-file @error('picture') is invalid @enderror" name="picture"
                     id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
                     value="{{ $article->picture }}">
                 <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
             <img src="{{ asset('storage/' .$article->picture) }}" width="200px" height="200px">
+
+            @error('picture')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             {{-- /Immagine --}}
 
             <div class="form-group">
@@ -106,6 +122,9 @@
                     value="{{ $article->time }}" required>
                 <small id="timeId" class="form-text text-muted">Edit this pubblication date</small>
             </div>
+              @error('time')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
 
             <button type="submit" class="btn btn-primary">Submit</button>
