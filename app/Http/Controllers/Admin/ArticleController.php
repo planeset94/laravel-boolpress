@@ -145,9 +145,9 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-           $article->delete();
-           //Con l'eliminazione dell'elemento, scollego le tabelle. 
-           $article->tags()->detach();
+        //Con l'eliminazione dell'elemento, scollego le tabelle. 
+        $article->tags()->detach();
+        $article->delete();
            return redirect()->route('admin.articles.index');
             
     }
