@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container p-4">
+    <h3 class="text-muted">Keep in touch</h3>
         <form action="{{ route('contacts.send') }}" method="post">
             @csrf
             {{-- nome --}}

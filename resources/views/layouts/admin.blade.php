@@ -24,6 +24,8 @@
 </head>
 
 <body>
+
+{{-- DROPDOWN MENU --}}
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -33,9 +35,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('article.index') }}">User Homepage</a>
-                    <a class="dropdown-item" href="{{ route('admin.articles.create') }}">Create new article</a>
                     <a class="dropdown-item" href="#">About Me</a>
-                    <a class="dropdown-item" href="#">Contacts</a>
+                    <a class="dropdown-item" href="{{route('contacts.form')}}">Contacts</a>
 
                 </div>
 

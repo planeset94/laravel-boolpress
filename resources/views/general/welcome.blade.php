@@ -41,7 +41,7 @@
                     <a class="text-uppercase text-xs mb-2" href="#!">
                         About Me
                     </a>
-                    <a class="text-uppercase text-xs mb-2" href="#!">
+                    <a class="text-uppercase text-xs mb-2" href="{{route('contacts.form')}}">
                         Contacts
                     </a>
 
