@@ -27,8 +27,9 @@
 
 
 <body>
+{{--NAV BAR--}}
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm pb-0">
             <div class="container">
                 <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,8 +39,6 @@
                     <a class="dropdown-item" href="{{ route('admin.articles.index') }}">Admin</a>
 
                 </div>
-
-
 
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

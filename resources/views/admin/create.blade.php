@@ -14,9 +14,21 @@
         </div>
     @endif
 
-    <div class="container p-4">
 
-        <form action="{{ route('admin.articles.store') }}" method="post" enctype="multipart/form-data">
+
+    <div class="container">
+
+
+       <nav class="d-flex  mb-5">
+            <a class="text-muted text-xs mb-2" href="{{ route('admin.articles.index') }}">
+                Back
+            </a>
+
+        </nav>
+
+        <h3 class="text-muted pb-3">Edit Article</h3>
+
+         <form action="{{ route('admin.articles.store') }}" method="post" enctype="multipart/form-data">
 
             @csrf
             <div class="form-group">

@@ -124,6 +124,7 @@ class ArticleController extends Controller
 
         // trasformo le immagini in percorsi testuali 
         if(array_key_exists("picture", $validatedData)) {
+            Storage::delete($article->picture);
             $img_path = Storage::put("article_images", $validatedData["picture"]);
             $validatedData["picture"] = $img_path;
             }

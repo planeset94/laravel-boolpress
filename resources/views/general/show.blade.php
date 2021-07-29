@@ -22,10 +22,11 @@
             <div class="col-3 d-flex">
 
                 <!-- Image -->
-                {{-- <img src="{{ $article->picture }}" alt="..." class="img-fluid image mb-3 mb-md-0"> --}}
-                @if ($article->picture)
-                    <img src="{{ asset('storage/' . $article->picture) }}" class="img-fluid image mb-3 mb-md-0">
-                @endif
+                    @if ($article->picture)
+                        <img src="{{ asset('storage/' . 'article_images/'.$article->picture) }}" class="img-fluid mb-3 mb-md-0"
+                            width="250px" height="250px" style="object-fit:contain">
+                    @endif
+                <!-- /Image -->
 
             </div>
 
@@ -34,17 +35,17 @@
             <div class="col-8">
             
                 <!-- Category & Tags -->
-            <div class="cat-tag d-flex align-items-center">
+                    <div class="cat-tag d-flex align-items-center">
                 <!-- Category & Tags -->
-                <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
-                <div class="tags pl-3">
-                    @forelse($article->tags as $tag)
-                    <small>{{$tag->name}}</small>
-                    @empty
-                    <small>No tags yet</small>
-                    @endforelse
+                    <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
+                    <div class="tags pl-3">
+                        @forelse($article->tags as $tag)
+                        <small>{{$tag->name}}</small>
+                        @empty
+                        <small>No tags yet</small>
+                        @endforelse
+                    </div>
                 </div>
-            </div>
                 <!-- /Category & Tags -->
             
 

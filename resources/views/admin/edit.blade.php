@@ -15,7 +15,7 @@
     @endif
 
 
-    <div class="container pb-0">
+    <div class="container">
         <nav class="d-flex  mb-5">
             <a class="text-muted text-xs mb-2" href="{{ route('admin.articles.index') }}">
                 Back
@@ -71,14 +71,14 @@
             {{-- /Categoria --}}
 
              {{-- Tag--}}
-        <div class="form-group">
-          <label for="tags">Tag</label>
-          <select multiple class="form-control" name="tags[]" id="tags">
-          <option value="" disabled>Select a tag</option>
-           @if($tags)
-           @foreach($tags as $tag)
-            <option value="{{$tag->id}}">{{$tag->name}}</option>
-            @endforeach
+            <div class="form-group">
+            <label for="tags">Tag</label>
+            <select multiple class="form-control" name="tags[]" id="tags">
+            <option value="" disabled>Select a tag</option>
+            @if($tags)
+            @foreach($tags as $tag)
+                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                @endforeach
         @endif
           </select>
         </div> 
@@ -97,7 +97,7 @@
                     value="{{ $article->picture }}">
                 <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
-            <img src="{{ asset('storage/' . $article->picture) }}" width="200px" height="200px">
+            <img src="{{ asset('storage/' .'article_images/'. $article->picture) }}" width="200px" height="200px">
             {{-- /Immagine --}}
 
             <div class="form-group">

@@ -7,7 +7,7 @@
 
 
     <div class="row my-3 align-items-center">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center pb-4">
 
             <!-- Image -->
             <img class="news" src="https://media.vanityfair.it/static/img/channel-news.png" alt="..."
@@ -57,9 +57,10 @@
 
                             <!-- Image -->
                             @if ($article->picture)
-                                <img src="{{ asset('storage/' . $article->picture) }}" class="img-fluid mb-3 mb-md-0"
+                                <img src="{{ asset('storage/' . 'article_images/'.$article->picture) }}" class="img-fluid mb-3 mb-md-0"
                                     width="100px" height="100px">
                             @endif
+                            <!-- /Image -->
                         </div>
                         <div class="col-12 col-md-9">
 
