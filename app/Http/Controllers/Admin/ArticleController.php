@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 use App\Category;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use Illuminate\Http\File;
@@ -20,8 +21,9 @@ class ArticleController extends Controller
     {
         $articles=Article::orderBy('id','DESC')->paginate(10);
         $categories=Category::all();
+        $tags=Tag::all();
         // ddd($articles);
-        return view('admin.index', compact('articles', 'categories'));
+        return view('admin.index', compact('articles', 'categories', 'tags'));
     }
 
     /**
@@ -32,7 +34,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categories=Category::all();
-        return view ('admin.create', compact('categories'));
+        $tags=Tag::all();
+        return view ('admin.create', compact('categories','tags'));
     }
 
     /**
@@ -77,7 +80,8 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         $categories=Category::all();
-        return view('admin.show', compact('article', 'categories'));
+        $tags=Tag::all();
+        return view('admin.show', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -89,7 +93,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     { 
         $categories=Category::all();
-        return view('admin.edit', compact('article','categories'));
+        $tags=Tag::all();
+        return view('admin.edit', compact('article','categories','tags'));
     }
 
     /**

@@ -30,8 +30,21 @@
 
 
             <div class="col-8">
+                
+            <!-- Category & Tags -->
+                <div class="cat-tag d-flex align-items-center">
+                    <!-- Category & Tags -->
+                    <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
+                    <div class="tags pl-3">
+                        @forelse($article->tags as $tag)
+                        <small>{{$tag->name}}</small>
+                        @empty
+                        <small>No tags yet</small>
+                        @endforelse
+                    </div>
+                </div>
+            <!-- /Category & Tags -->
 
-                <small> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
                 <!-- Heading -->
                 <h4 class="pb-2">
                     {{ $article->title }}
@@ -53,7 +66,7 @@
 
 
 
-            <!-- / .row -->
+            <!-- /.row -->
 
             <hr class="my-4">
 

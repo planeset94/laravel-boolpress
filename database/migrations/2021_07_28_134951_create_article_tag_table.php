@@ -22,7 +22,7 @@ class CreateArticleTagTable extends Migration
             $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')->references('id')->on('articles');
             // // Specifico gli elementi identificatori 
-            // $table->primary(['article_id', 'tag_id']);
+            $table->primary(['article_id', 'tag_id']);
         });
     }
 

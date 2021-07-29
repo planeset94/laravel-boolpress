@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\General;
 
 use App\Article;
+use App\Category;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,7 +19,9 @@ class ArticleController extends Controller
     {
            
         $articles=Article::orderBy('id', 'DESC')->paginate(10);
-        return view('general.welcome', compact('articles'));
+        $categories=Category::all();
+        $tags=Tag::all();
+        return view('general.welcome', compact('articles', 'categories', 'tags'));
     }
 
    
@@ -29,7 +33,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('general.show', compact('article'));
+        $categories=Category::all();
+        $tags=Tag::all();
+        return view('general.show', compact('article', 'categories', 'tags'));
     }
 
     
