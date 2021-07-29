@@ -54,7 +54,8 @@ class ArticleController extends Controller
                 'intro'=>'nullable',
                 'author'=> 'required',
                 'picture'=>'required | image | max:300',
-                'time'=>'required| date'
+                'time'=>'required| date',
+                'tags'=>'nullable | exists:tags,id'
                 ]
             );
             
@@ -65,8 +66,9 @@ class ArticleController extends Controller
         $img_path = Storage::put("article_images", $validatedData["picture"]);
         $validatedData["picture"] = $img_path;
         }
-                
-        Article::create($validatedData);       
+               
+        $article=Article::create($validatedData);       
+        $article->tags()->attach($request->tags);
         return redirect()->route('admin.articles.index');
         
     }
