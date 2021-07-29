@@ -84,7 +84,10 @@
                 <label for="tags">Tag</label>
                 <select multiple class="form-control" name="tags[]" id="tags">
                     <option value="" disabled>Select a tag</option>
-                    @if($tags)
+                    @if($errors->any())
+                        <option value="{{$tag->id}}" {{in_array($tag->id, old('tags')) ? 'selected' : '' }}>{{$tag->name}}</option>
+                   
+                    @else
                         @foreach($tags as $tag)
                             <option value="{{$tag->id}}" {{$article->tags->contains($tag) ? 'selected' : '' }}>{{$tag->name}}</option>
                         @endforeach
