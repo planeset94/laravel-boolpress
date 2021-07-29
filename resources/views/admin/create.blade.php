@@ -41,6 +41,7 @@
             </div>
 
 
+        {{-- Category--}}
             <div class="form-group">
                 <label for="category_id">Categories</label>
                 <select class="form-control" name="category_id" id="category_id">
@@ -51,8 +52,21 @@
 
                 </select>
             </div>
+        {{-- /Category--}}
 
-            
+        {{-- Tag--}}
+        <div class="form-group">
+          <label for="tags">Tag</label>
+          <select multiple class="form-control" name="tags[]" id="tags">
+          <option value="" disabled>Select a tag</option>
+           @if($tags)
+           @foreach($tags as $tag)
+            <option value="{{$tag->id}}">{{$tag->name}}</option>
+            @endforeach
+        @endif
+          </select>
+        </div> 
+        {{-- /Tag--}}
 
 
             <div class="form-group">
