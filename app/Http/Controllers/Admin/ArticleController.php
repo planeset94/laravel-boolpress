@@ -49,13 +49,13 @@ class ArticleController extends Controller
         $validatedData=$request->validate(
             [
                 'category_id'=>'nullable|exists:categories,id',
+                'tags'=>'nullable | exists:tags,id',
                 'title'=>' required | min:5 | max:50', 
                 'text'=>'required',
                 'intro'=>'nullable',
                 'author'=> 'required',
                 'picture'=>'required | image | max:300',
-                'time'=>'required| date',
-                'tags'=>'nullable | exists:tags,id'
+                'time'=>'required| date'
                 ]
             );
             
@@ -112,13 +112,14 @@ class ArticleController extends Controller
         $validatedData=$request->validate(
             [
                 'category_id'=>'nullable|exists:categories,id',
+                'tags'=>'nullable|exists:tags,id',
                 'title'=>' required | min:5 | max:50', 
                 'text'=>'required',
                 'intro'=>'nullable',
                 'author'=> 'required',
                 'picture'=>'nullable',
                 'time'=>'required| date'
-            ]
+                ]
         );
 
 
@@ -128,7 +129,10 @@ class ArticleController extends Controller
             $img_path = Storage::put("article_images", $validatedData["picture"]);
             $validatedData["picture"] = $img_path;
             }
+
+        $article->tags()->sync($request->tags);
         $article->update($validatedData);
+        
         return redirect()->route('admin.articles.index');
     }
 

@@ -11,6 +11,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Category</th>
+                    <th>Tag</th>
                     <th>Picture</th>
                     <th>Title</th>
                     <th>Intro</th>
@@ -26,10 +27,16 @@
                     <tr>
 
                         <td>{{ $article->id }}</td>
-                  
                         <td>{{ $article->category ? $article->category->name : 'Uncategorized' }}</td>
-                                                
-                    <td>
+                        <td>
+                            <div class="tags pl-3">
+                                @forelse($article->tags as $tag)
+                                    <small>{{$tag->name}}</small>
+                                @empty
+                                    <small>No tags yet</small>
+                                @endforelse
+                            </div>           
+                        <td>
                         <!-- Image -->
                             @if ($article->picture)
                                 <img src="{{ asset('storage/' . 'article_images/'.$article->picture) }}" class="img-fluid mb-3 mb-md-0"

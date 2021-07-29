@@ -38,6 +38,7 @@
                     <!-- Category & Tags -->
                     <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
                     <div class="tags pl-3">
+                    <small>Tags:</small>
                         @forelse($article->tags as $tag)
                         <small>{{$tag->name}}</small>
                         @empty

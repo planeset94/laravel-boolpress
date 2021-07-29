@@ -36,14 +36,16 @@
             
                 <!-- Category & Tags -->
                     <div class="cat-tag d-flex align-items-center">
-                <!-- Category & Tags -->
+            
                     <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
+
                     <div class="tags pl-3">
-                        @forelse($article->tags as $tag)
-                        <small>{{$tag->name}}</small>
-                        @empty
-                        <small>No tags yet</small>
-                        @endforelse
+                        <small style="text-decoration:bold">Tags:</small>
+                            @forelse($article->tags as $tag)
+                                <small>{{$tag->name}}</small>
+                            @empty
+                                <small>No tags yet</small>
+                            @endforelse
                     </div>
                 </div>
                 <!-- /Category & Tags -->

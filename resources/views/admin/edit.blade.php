@@ -72,15 +72,16 @@
 
              {{-- Tag--}}
             <div class="form-group">
-            <label for="tags">Tag</label>
-            <select multiple class="form-control" name="tags[]" id="tags">
-            <option value="" disabled>Select a tag</option>
-            @if($tags)
-            @foreach($tags as $tag)
-                <option value="{{$tag->id}}">{{$tag->name}}</option>
-                @endforeach
-        @endif
-          </select>
+                <label for="tags">Tag</label>
+                <select multiple class="form-control" name="tags[]" id="tags">
+                    <option value="" disabled>Select a tag</option>
+                    @if($tags)
+                        @foreach($tags as $tag)
+                            <option value="{{$tag->id}}" {{$article->tags->contains($tag) ? 'selected' : '' }}>{{$tag->name}}</option>
+                        @endforeach
+                    @endif
+
+                </select>
         </div> 
         {{-- /Tag--}}
 
