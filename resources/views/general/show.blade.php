@@ -23,7 +23,7 @@
 
                 <!-- Image -->
                     @if ($article->picture)
-                        <img src="{{ asset('storage/' . 'article_images/'.$article->picture) }}" class="img-fluid mb-3 mb-md-0"
+                        <img src="{{ asset('storage/' .$article->picture) }}" class="img-fluid mb-3 mb-md-0"
                             width="250px" height="250px" style="object-fit:contain">
                     @endif
                 <!-- /Image -->

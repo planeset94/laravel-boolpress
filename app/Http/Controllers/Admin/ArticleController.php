@@ -46,6 +46,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        // ddd($request->all());
         $validatedData=$request->validate(
             [
                 'category_id'=>'nullable|exists:categories,id',

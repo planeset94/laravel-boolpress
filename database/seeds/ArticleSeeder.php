@@ -19,7 +19,7 @@ class ArticleSeeder extends Seeder
             $article->intro=$faker->realText($maxNbChars = 50, $indexSize = 2);
             $article->text=$faker->realText($maxNbChars = 500, $indexSize = 2);
             $article->author=$faker->name($gender = null);
-            $article->picture=$faker->image('storage/app/public/article_images', 100,100,'Article',false,true);
+            $article->picture = 'article_images/' . $faker->image('storage/app/public/article_images', 100,100,'Article',false,true);
             $article->time=$faker->date();
             $article->save();        
     

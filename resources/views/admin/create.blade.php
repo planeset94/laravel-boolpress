@@ -86,13 +86,14 @@
                     aria-describedby="authorId" placeholder="Author" max="30" value="{{ old('author') }}" required>
                 <small id="authorId" class="form-text text-muted">Who's the author?</small>
             </div>
-
+        {{--Immagini--}}
             <div class="form-group">
                 <input type="file" class="form-control-file @error('title') is invalid @enderror" name="picture"
                     id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
                     value="{{ old('picture') }}">
                 <small id="pictureId" class="form-text text-muted">Place an Url image</small>
             </div>
+        {{--/Immagini--}}
 
             <div class="form-group">
                 <input type="date" class="form-control" name="time" id="time" aria-describedby="timeId"

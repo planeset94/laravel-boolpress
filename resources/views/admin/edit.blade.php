@@ -98,7 +98,7 @@
                     value="{{ $article->picture }}">
                 <small id="pictureId" class="form-text text-muted">Edit this Url image</small>
             </div>
-            <img src="{{ asset('storage/' .'article_images/'. $article->picture) }}" width="200px" height="200px">
+            <img src="{{ asset('storage/' .$article->picture) }}" width="200px" height="200px">
             {{-- /Immagine --}}
 
             <div class="form-group">
