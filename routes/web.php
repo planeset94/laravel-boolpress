@@ -19,10 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('contacts', 'PageController@contact')->name('contacts.form');
 Route::post('contacts', 'PageController@sendForm')->name('contacts.send');
 
+//Rotta per le categorie
+Route::get('categories/{category:slug}', 'CategoryController@show')->name('categories.show');
 
    // Pagina principale e approfondimento
 Route::get('/', 'General\ArticleController@index')->name('article.index');
 Route::get('articles{article}', 'General\ArticleController@show')->name('article.show');
+
+
+
 
 
 // Rotte per Admin 

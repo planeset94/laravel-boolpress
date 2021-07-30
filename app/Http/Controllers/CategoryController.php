@@ -26,7 +26,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categories=Category::all();
+        return view('general.categories.show', compact('categories'));
     }
 
     

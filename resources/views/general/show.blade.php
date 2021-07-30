@@ -9,7 +9,7 @@
 
         <!-- nav -->
         <nav class="d-flex  mb-5 pb-md-0">
-            <a class="text-muted text-xs mb-2" href="{{ route('article.index') }}">
+            <a class="text-muted text-xs mb-2" href="{{route('article.index') }}">
                 Home
             </a>
 
@@ -37,7 +37,13 @@
                 <!-- Category & Tags -->
                     <div class="cat-tag d-flex align-items-center">
             
-                    <small class=""> Category: {{ $article->category ? $article->category->name : 'Uncategorized' }}</small>
+                    <small> Category: 
+                    @if ($article->category)
+                    <a href="{{route('categories.show', $article->category->slug)}}"> {{ $article->category ? $article->category->name : 'Uncategorized' }} </a> </small>
+                    @else
+                    {{$article->category ? $article->category->name : 'Uncategorized' }}
+                    @endif
+                    </small>
 
                     <div class="tags pl-3">
                         <small style="text-decoration:bold">Tags:</small>
