@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('articles', function (){
-    $articles=Article::with(['category', 'tags'])->get();
+    $articles=Article::with(['category', 'tags'])->orderBy('id', 'desc')->paginate();
     return response()->json([
         'name'=>'Articoli', 
         'n_items'=>count($articles),
