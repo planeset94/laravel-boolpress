@@ -3,6 +3,15 @@
 
 
 @section('content')
+    @if(session('message'))
+
+    <div class="alert alert-success" role="alert">
+        <strong>{{session('message')}}</strong>
+    </div>
+
+    @endif
+
+
 
     <div class="container p-4">
            <a class="btn btn-primary btn-md mb-2 float-right font-weight-bold" href="{{ route('admin.articles.create') }}" role="button">Create new article</a>

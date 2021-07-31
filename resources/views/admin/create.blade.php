@@ -16,6 +16,9 @@
 
 
 
+
+
+
     <div class="container">
 
 
@@ -102,7 +105,7 @@
         {{--Immagini--}}
             <div class="form-group">
                 <input type="file" class="form-control-file @error('picture') is invalid @enderror" name="picture"
-                    id="picture" aria-describedby="pictureId" placeholder="https://" max="300"
+                    id="picture" aria-describedby="pictureId"
                     value="{{ old('picture') }}">
                 <small id="pictureId" class="form-text text-muted">Place an Url image</small>
             </div>
