@@ -15,7 +15,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles=Article::with(['category', 'tags'])->orderBy('id','desc')->paginate();
+        return response()->json([
+            'name'=>'Articoli',
+            'n_items'=>count($articles),
+            'status_code'=>200,
+            'response'=>$articles
+        ]);
     }
 
     /**

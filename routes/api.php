@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 // NO CONTROLLER 
-Route::get('articles', function (){
+/*Route::get('articles', function (){
     $articles=Article::with(['category', 'tags'])->orderBy('id', 'desc')->paginate();
     return response()->json([
         'name'=>'Articoli', 
@@ -29,6 +29,7 @@ Route::get('articles', function (){
         'response'=> $articles
     ]);
 });
+*/
 
 // WITH CONTROLLER 
-
+Route::get('articles', 'Api\ArticleController@index');
