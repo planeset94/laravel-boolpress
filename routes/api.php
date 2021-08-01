@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+// NO CONTROLLER 
 Route::get('articles', function (){
     $articles=Article::with(['category', 'tags'])->orderBy('id', 'desc')->paginate();
     return response()->json([
@@ -27,3 +29,6 @@ Route::get('articles', function (){
         'response'=> $articles
     ]);
 });
+
+// WITH CONTROLLER 
+
