@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
+    @yield('js')
 </head>
 
 
@@ -35,7 +36,7 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Blog
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div id="_left8" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('admin.articles.index') }}">Admin</a>
 
                 </div>

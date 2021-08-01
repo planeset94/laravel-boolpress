@@ -33,7 +33,7 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Blog
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ route('article.index') }}">User Homepage</a>
                     <a class="dropdown-item" href="#">About Me</a>
                     <a class="dropdown-item" href="{{route('contacts.form')}}">Contacts</a>

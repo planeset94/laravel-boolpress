@@ -39,7 +39,7 @@
             
                     <small> Category: 
                     @if ($article->category)
-                    <a href="{{route('categories.show', $article->category->slug)}}"> {{ $article->category ? $article->category->name : 'Uncategorized' }} </a> </small>
+                    <a href="{{route('categories.show', $article->category->id)}}"> {{ $article->category ? $article->category->name : 'Uncategorized' }} </a> </small>
                     @else
                     {{$article->category ? $article->category->name : 'Uncategorized' }}
                     @endif
