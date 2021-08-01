@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
+use App\Http\Resources\ArticleResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,8 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     /* NO Eloquent API 
     public function index()
     {
         $articles=Article::with(['category', 'tags'])->orderBy('id','desc')->paginate();
@@ -23,6 +26,14 @@ class ArticleController extends Controller
             'response'=>$articles
         ]);
     }
+*/ 
+    // ELOQUENT API 
+    public function index()
+    {
+        $articles=Article::with(['category', 'tags'])->orderBy('id','desc')->paginate();
+        return ArticleResource::collection($articles);
+    }
+
 
     /**
      * Show the form for creating a new resource.
