@@ -1,5 +1,13 @@
 const mix = require('laravel-mix');
 
+// {
+//     resolve: {
+//         alias: {
+//             vue: 'vue/dist/vue.js'
+//         }
+//     }
+// }
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

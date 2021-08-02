@@ -1,13 +1,12 @@
 @extends ('layouts.app')
 
-@section('js')
-<script src="{{asset('js/app.js')}}" defer></script>    
-@endsection
+
+
 @section('content')
     <div id="root" class="container">
         <div class="form-group">
-            <label for="category">Articles in:</label>
-            <select class="border-0 bg-light" name="category" id="category" v-model="selected" >
+            <label for="category">Articles in: </label>
+            <select id="valore" class="border-0 bg-light" name="category" id="category" >
                 @foreach ($categories as $category_item)
                 <option value="{{$category_item->id}}" {{$category_item->id === $category->id ? 'selected' : ''}}>{{$category_item->name}}</option>
             @endforeach
@@ -17,7 +16,7 @@
         {{-- VUE JS  --}}
 
         <div class="articles" v-for="article in articles">
-            <h3 v-text="article.title"></h3>
+            <h3>@{{article['title']}}</h3>
       
         </div>
 
