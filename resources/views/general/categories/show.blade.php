@@ -4,21 +4,27 @@
 <script src="{{asset('js/app.js')}}" defer></script>    
 @endsection
 @section('content')
-<div id="root">
-    <div class="container">
+    <div id="root" class="container">
         <div class="form-group">
             <label for="category">Articles in:</label>
-            <select class="border-0 bg-light" name="category" id="category" >
-                <option value="{{$category->id}}" selected>{{$category->name}}</option>
-                @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+            <select class="border-0 bg-light" name="category" id="category" v-model="selected" >
+                @foreach ($categories as $category_item)
+                <option value="{{$category_item->id}}" {{$category_item->id === $category->id ? 'selected' : ''}}>{{$category_item->name}}</option>
             @endforeach
             </select>
         </div>
+     
+        {{-- VUE JS  --}}
+
+        <div class="articles" v-for="article in articles">
+            <h3 v-text="article.title"></h3>
+      
+        </div>
+
+
+
+
     </div>
-</div>
-
-
 
 @endsection
 

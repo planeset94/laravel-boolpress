@@ -33,11 +33,13 @@ const app = new Vue({
     el: '#root',
     data:{
         articles:[],
+        selected:''
     },
     mounted(){
     Axios.get('/api/articles').then(resp => {
         // console.log(resp.data.data);
         this.articles=resp.data.data;
+     
     }).catch(e=>{
         console.error('Sorry!' + e);
     })

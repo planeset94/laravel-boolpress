@@ -49874,7 +49874,8 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#root',
   data: {
-    articles: []
+    articles: [],
+    selected: ''
   },
   mounted: function mounted() {
     var _this = this;
