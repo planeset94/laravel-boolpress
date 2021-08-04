@@ -35,22 +35,24 @@
             <div class="col-8">
             
                 <!-- Category & Tags -->
-                    <div class="cat-tag d-flex align-items-center">
-            
-                    <small> Category: 
+                <div class="cat-tag d-flex align-items-center">
+                    <a href="{{route('categories.index')}}">
+                        <small> Category:  </small>
+                    </a>
                     @if ($article->category)
-                    <a href="{{route('categories.show', $article->category->id)}}"> {{ $article->category ? $article->category->name : 'Uncategorized' }} </a> </small>
+                        <small class="pl-2">{{$article->category ? $article->category->name : ' Uncategorized' }}</small> 
+             
                     @else
-                    {{$article->category ? $article->category->name : 'Uncategorized' }}
+                        <small class="pl-2">{{$article->category ? $article->category->name : ' Uncategorized' }}</small>
                     @endif
-                    </small>
+                    
 
                     <div class="tags pl-3">
-                        <small style="text-decoration:bold">Tags:</small>
+                        <small>Tags:</small>
                             @forelse($article->tags as $tag)
-                                <small>{{$tag->name}}</small>
+                                <small class="">{{$tag->name}}</small>
                             @empty
-                                <small>No tags yet</small>
+                                <small class="">No tags yet</small>
                             @endforelse
                     </div>
                 </div>

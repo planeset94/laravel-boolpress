@@ -1876,14 +1876,34 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 var app = new (vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default())({
   el: '#root',
   data: {
-    articles: []
+    articles: [],
+    search: ''
+  },
+  methods: {
+    filterData: function filterData() {
+      var _this = this;
+
+      this.articles.forEach(function (el) {
+        if (_this.search == 'All') {
+          el.visibile = true;
+        } else if (el.category_id == _this.search) {
+          el.visibile = true;
+        } else {
+          el.visibile = false;
+        }
+      });
+    }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     Axios.get('/api/articles').then(function (resp) {
       // console.log(resp.data.data);
-      _this.articles = resp.data.data;
+      _this2.articles = resp.data.data;
+
+      _this2.articles.forEach(function (el) {
+        el.visibile = true;
+      });
     })["catch"](function (e) {
       console.error('Sorry!' + e);
     });

@@ -33,12 +33,31 @@ import Vue from 'vue/dist/vue.js';
 const app = new Vue({
     el: '#root',
     data:{
-        articles:[]
+        articles:[], 
+        search:''
     },
+    methods:{
+        filterData(){
+            this.articles.forEach(el => {
+                if(this.search=='All'){
+                    el.visibile=true;
+                }else if(el.category_id==this.search){
+                    el.visibile=true;
+                }else{
+                    el.visibile=false;
+                }
+            });
+        }
+    },
+
     mounted(){
         Axios.get('/api/articles').then(resp => {
             // console.log(resp.data.data);
             this.articles=resp.data.data;
+            
+            this.articles.forEach(el => {
+                el.visibile=true;
+            });
         
         }).catch(e=>{
             console.error('Sorry!' + e);

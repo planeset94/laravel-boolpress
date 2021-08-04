@@ -26,7 +26,7 @@ Route::get('articles{article}', 'General\ArticleController@show')->name('article
 
 //Rotte VUe js
 //Rotta per le categorie
-Route::get('categories/{category:id}', 'CategoryController@show')->name('categories.show');
+Route::get('categories', 'CategoryController@index')->name('categories.index');
 
 
 
