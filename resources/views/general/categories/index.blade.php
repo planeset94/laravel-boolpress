@@ -14,27 +14,25 @@
 
 
             </select>
-        
-
-        </div>
-{{--      
-        {{-- VUE JS  --}}
-
-        <div class="articles" v-for="article in articles" >
-       
-                <div class="article-container" v-if="article.visibile" >
-                        <div class="col-12">
-                            <h4>@{{article['title']}}</h4>
-                            <p>@{{article['text']}}</p>
-                            <small>@{{article['author']}}</small>
-                        </div>                        
-                    <hr class="my-4">
-                </div>
-
            
-        </div> 
+    </div>   
+            
+                {{-- VUE JS  --}}
+        <div class="container my-5">
+            <article-component  
+                v-for="article in articles"
+                v-if="article.visibile"
+                v-bind:key="article.id"
+                v-bind:title="article.title"
+                v-bind:text="article.text"
+                v-bind:author="article.author">
+            </article-component>
+        </div>
 
-        <blog-post title="My journey with Vue"></blog-post>
+
+   
+
+  
 
 
 
